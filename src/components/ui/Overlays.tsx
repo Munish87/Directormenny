@@ -106,7 +106,7 @@ export function Overlays() {
   return (
     <div
       onClick={closeOverlay}
-      className="fixed inset-0 z-40 flex items-center justify-center bg-[#05070d]/90 p-4 md:p-10 select-none animate-fadeIn overflow-y-auto"
+      className="portfolio-overlay fixed inset-0 z-40 flex items-center justify-center bg-[#05070d]/90 p-4 md:p-10 select-none animate-fadeIn overflow-y-auto"
     >
       <div
         ref={dialogRef}

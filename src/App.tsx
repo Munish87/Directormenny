@@ -8,7 +8,7 @@ import { useDmStore, getHomeVideos } from './lib/store';
 import { useInput } from './hooks/useInput';
 import { useVideos } from './hooks/useVideos';
 import { useSound } from './hooks/useSound';
-import { Scene } from './components/3d/Scene';
+import { usePhonePerformance } from './hooks/usePhonePerformance';
 import { BootSequence } from './components/ui/BootSequence';
 import { TopBar } from './components/ui/TopBar';
 import { MusicView } from './components/ui/MusicView';
@@ -20,10 +20,14 @@ import { Overlays } from './components/ui/Overlays';
 import { getVideoArtwork } from './lib/videoArtwork';
 import { HintsBar } from './components/ui/HintsBar';
 
+const Scene = React.lazy(() => import('./components/3d/Scene').then(module => ({ default: module.Scene })));
+const staticBackground = <div aria-hidden="true" className="console-scene console-scene-fallback fixed inset-0 pointer-events-none" />;
+
 export default function App() {
   useInput();
   useVideos();
   useSound();
+  const phonePerformance = usePhonePerformance();
 
   const bootPhase = useDmStore((s) => s.bootPhase);
   const activeTab = useDmStore((s) => s.activeTab);
@@ -37,9 +41,9 @@ export default function App() {
   const artworks = useDmStore((s) => s.artworks);
 
   return (
-    <div className="console-app relative w-full h-dvh overflow-hidden bg-[#05070d] text-white" data-motion={reducedMotion || lowPower2D ? 'still' : 'spatial'}
+    <div className="console-app relative w-full h-dvh overflow-hidden bg-[#05070d] text-white" data-performance={phonePerformance ? 'phone' : 'desktop'} data-motion={phonePerformance || reducedMotion || lowPower2D ? 'still' : 'spatial'}
       onPointerMove={e => {
-        if (reducedMotion || lowPower2D || activeTab === 'music' || e.pointerType !== 'mouse') return;
+        if (phonePerformance || reducedMotion || lowPower2D || activeTab === 'music' || e.pointerType !== 'mouse') return;
         e.currentTarget.style.setProperty('--pointer-x', `${(e.clientX / window.innerWidth - .5) * 2}`);
         e.currentTarget.style.setProperty('--pointer-y', `${(e.clientY / window.innerHeight - .5) * 2}`);
       }} onPointerLeave={e => { e.currentTarget.style.setProperty('--pointer-x', '0'); e.currentTarget.style.setProperty('--pointer-y', '0'); }}>
@@ -82,7 +86,7 @@ export default function App() {
 
       {/* Persistent 3D WebGL Scene (GLSL Wave Shader + Particle Field + Camera Rig) */}
       {bootPhase === 'home' && (activeTab === 'videos' || selectedVideoId) && backdropVideo && <div className="console-backdrop" aria-hidden="true"><img key={backdropVideo.id} src={getVideoArtwork(backdropVideo)} alt="" /></div>}
-      <Scene />
+      {phonePerformance || lowPower2D ? staticBackground : <React.Suspense fallback={staticBackground}><Scene /></React.Suspense>}
 
       {/* Boot + Controller User Select Sequence */}
       <BootSequence />

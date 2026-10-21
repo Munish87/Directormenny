@@ -3,8 +3,10 @@ import { LayoutGrid, Clapperboard, Play, ArrowUpRight } from 'lucide-react';
 import { useDmStore, getHomeVideos } from '../../lib/store';
 import { getVideoArtwork } from '../../lib/videoArtwork';
 import { useSound } from '../../hooks/useSound';
+import { usePhonePerformance } from '../../hooks/usePhonePerformance';
 
 export function HomeView() {
+  const phonePerformance = usePhonePerformance();
   const s = useDmStore();
   const { playSound } = useSound();
   const row = useRef<HTMLDivElement>(null);
@@ -37,7 +39,8 @@ export function HomeView() {
       <section className="home-video-preview" aria-label={`Preview: ${video.shortTitle}`}>
         <div className="preview-screen">
         <img src={getVideoArtwork(video)} alt={video.title} />
-        {video.youtubeId && s.activeOverlay === 'none' && (
+        {phonePerformance && <button type="button" className="phone-preview-play" onClick={activate} aria-label={`Play ${video.shortTitle}`}><Play size={24} fill="currentColor" /><span>Watch film</span></button>}
+        {!phonePerformance && video.youtubeId && s.activeOverlay === 'none' && (
           <iframe
             key={video.youtubeId}
             title={`${video.shortTitle} — video preview`}
@@ -63,7 +66,8 @@ export function HomeView() {
             src={getVideoArtwork(item)}
             alt={item.title}
             className="w-full object-contain object-center block"
-            loading="eager"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               if (item.youtubeId && !target.src.includes('hqdefault')) {

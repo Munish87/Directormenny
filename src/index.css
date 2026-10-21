@@ -430,3 +430,114 @@ body { background:radial-gradient(ellipse at 50% 0%,#303945,#151b24 75%); }
   .cinematic-covers .console-tile:not(.utility-tile) { flex-basis:145px; }
   .cinematic-covers .utility-tile { min-height:125px; }
 }
+
+/* Phone layout: keep navigation reachable while each view scrolls independently. */
+.phone-preview-play {
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;
+  color:white;font-size:14px;font-weight:600;background:linear-gradient(transparent,#0008);
+}
+.phone-preview-play svg { box-sizing:content-box;padding:14px;border-radius:50%;background:#edf4ff;color:#0b1424; }
+
+/* Avoid continuously compositing large blurred and 3D layers on touch devices. */
+.console-app[data-performance="phone"] { transform:none;box-shadow:none; }
+.console-app[data-performance="phone"] .console-scene { mix-blend-mode:normal; }
+.console-app[data-performance="phone"] .console-backdrop img { animation:none;transition:none; }
+.console-app[data-performance="phone"] .console-dock,
+.console-app[data-performance="phone"] .utility-tile,
+.console-app[data-performance="phone"] .record-card { backdrop-filter:none;-webkit-backdrop-filter:none; }
+.console-app[data-performance="phone"] .console-tile,
+.console-app[data-performance="phone"] .record-card,
+.console-app[data-performance="phone"] .art-frame { box-shadow:none;filter:none; }
+.console-app[data-performance="phone"] .record-stage { perspective:none; }
+.console-app[data-performance="phone"] .record-card {
+  will-change:auto;backface-visibility:visible;
+  transform:translateX(calc(-50% + var(--offset) * 78%));
+  transition:transform 180ms ease-out,opacity 180ms ease-out;
+}
+.console-app[data-performance="phone"] .expanded-video-card { transform:none;animation:none; }
+.console-app[data-performance="phone"] .art-frame { transform:none; }
+.console-app[data-performance="phone"] .portfolio-dialog { box-shadow:none; }
+.console-app[data-performance="phone"] .music-aura { position:absolute; }
+
+@media (max-width:767px), (max-height:500px) and (pointer:coarse) {
+  .console-app { margin:0;width:100%;height:100dvh;border:0;border-radius:0; }
+  .minimal-topbar {
+    height:auto;min-height:64px;gap:12px;
+    padding:calc(8px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));
+  }
+  .minimal-brand { min-width:0;gap:6px; }
+  .minimal-brand > button { min-height:44px;min-width:44px; }
+  .minimal-brand > button > img { height:34px;max-width:120px; }
+  .minimal-brand > i { margin:0 5px;flex-shrink:0; }
+  .minimal-brand > small { font-size:9px;letter-spacing:1px;white-space:nowrap; }
+  .minimal-topbar time { display:none; }
+
+  .cinematic-home {
+    display:flex;flex-direction:column;justify-content:flex-start;gap:20px;
+    padding:12px max(18px,env(safe-area-inset-right)) 24px max(18px,env(safe-area-inset-left));
+  }
+  .home-video-showcase { container-type:normal;grid-template-columns:minmax(0,1fr);gap:16px;flex:none;min-height:0; }
+  .home-video-showcase .cinematic-caption h1 { font-size:clamp(28px,8vw,38px);line-height:1.1;overflow-wrap:anywhere; }
+  .cinematic-caption .eyebrow { font-size:9px;letter-spacing:1.6px;line-height:1.8; }
+  .cinematic-meta { flex-wrap:wrap;gap:8px;font-size:12px;line-height:1.6; }
+  .home-video-preview { width:100%;border-radius:12px; }
+  .cinematic-library { flex:none; }
+  .cinematic-covers { gap:12px;scroll-padding-inline:8px; }
+  .cinematic-covers .console-tile:not(.utility-tile) { flex-basis:clamp(150px,44vw,190px); }
+  .cinematic-covers .console-tile:not(.utility-tile) > span { font-size:12px; }
+  .cinematic-covers .console-tile:not(.utility-tile) > small { font-size:9px;letter-spacing:1px; }
+  .cinematic-play { min-height:48px;gap:12px;font-size:14px; }
+  .console-home,.music-view,.art-gallery,.video-hub { overscroll-behavior-y:contain; }
+
+  .console-dock-wrap {
+    flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+    border-top:1px solid #c1dfff16;background:#070e1bf2;
+  }
+  .console-dock-wrap .footer-meta-left,.console-dock-wrap .footer-meta-right,
+  .console-dock-wrap .footer-mobile-sub { display:none; }
+  .console-dock { width:min(100%,420px);justify-content:space-between;gap:4px;padding:4px 8px;border-radius:22px; }
+  .dock-button { width:auto;flex:1;min-width:44px;height:52px;gap:4px;align-content:center;border-radius:14px; }
+  .dock-button svg { width:20px;height:20px; }
+  .dock-button .dock-tooltip {
+    display:block;position:static;transform:none;opacity:1;padding:0;border:0;background:none;
+    font-size:10px;line-height:1.2;color:inherit;
+  }
+  .dock-button.is-active:after { display:none; }
+
+  .music-view { padding:18px max(18px,env(safe-area-inset-right)) 24px max(18px,env(safe-area-inset-left)); }
+  .music-heading h1 { font-size:28px; }
+  .music-heading p { font-size:12px;line-height:1.6; }
+  .record-stage { --record-width:clamp(170px,54vw,240px);margin-top:24px; }
+  .record-navigation { margin-bottom:16px;gap:20px; }
+  .record-navigation button,.transport-controls button,.mute-control { min-width:44px;min-height:44px; }
+  .music-player { flex-wrap:wrap;justify-content:center;gap:10px 16px;padding:12px;border-radius:22px; }
+  .now-playing { order:-1;flex-basis:100%; }
+  .now-playing strong { font-size:13px; }.now-playing span { font-size:11px; }
+  .transport-controls { gap:18px; }
+  .expanded-video-caption button { min-height:44px; }
+
+  .art-gallery { padding-inline:max(18px,env(safe-area-inset-left)) max(18px,env(safe-area-inset-right)); }
+  .art-filters button { min-height:44px;font-size:12px; }
+  .art-showcase { grid-template-columns:minmax(0,1fr);gap:20px;min-height:0;margin:20px 0; }
+  .art-frame { grid-row:1;aspect-ratio:16/10;max-height:300px;transform:none; }
+  .art-info h1 { font-size:30px; }
+  .art-actions { flex-wrap:wrap;gap:12px 18px;margin-top:18px; }
+  .art-actions button { min-height:44px; }
+
+  .video-hub { flex:1;min-height:0;height:auto;padding:8px max(20px,env(safe-area-inset-right)) 24px max(20px,env(safe-area-inset-left));gap:28px; }
+  .video-hub > div { flex-shrink:0; }
+  .video-hub button { min-height:44px; }
+  .portfolio-overlay { padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)); }
+  .portfolio-dialog { padding:18px;border-radius:18px;overscroll-behavior:contain;overflow-wrap:anywhere; }
+  .portfolio-dialog-close { min-height:44px; }
+  .director-profile-header { flex-wrap:wrap; }
+  .director-profile-header > div { min-width:0; }
+  .booking-form input,.booking-form select,.booking-form textarea { font-size:16px; }
+}
+
+@media (max-height:500px) and (pointer:coarse) {
+  .minimal-topbar { min-height:48px;padding-top:env(safe-area-inset-top);padding-bottom:0; }
+  .home-video-showcase { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
+  .console-dock-wrap { padding-top:4px; }
+  .dock-button { height:44px; }
+}

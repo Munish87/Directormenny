@@ -490,8 +490,9 @@ export function useInput() {
 
     const onTouchStart = (e: TouchEvent) => {
       setInputSource('touch');
-      // Music owns horizontal cover gestures; vertical gestures scroll the page.
-      if ((e.target as HTMLElement | null)?.closest('.music-view')) {
+      // Native scrolling must not also move console focus or re-center carousels.
+      // Music handles its own cover gestures.
+      if ((e.target as Element | null)?.closest('.music-view, .console-home, .art-gallery, .video-hub, .portfolio-overlay, .art-viewer')) {
         touchStartRef.current = null;
         return;
       }
@@ -519,10 +520,14 @@ export function useInput() {
 
     const onGamepadConnected = (e: GamepadEvent) => {
       setGamepadStatus(true, e.gamepad.id);
+      refreshGamepadPolling();
     };
 
     const onGamepadDisconnected = () => {
-      setGamepadStatus(false, '');
+      const remaining = Array.from(navigator.getGamepads?.() ?? []).find(Boolean);
+      setGamepadStatus(Boolean(remaining), remaining?.id || '');
+      prevButtonsRef.current = [];
+      refreshGamepadPolling();
     };
 
     window.addEventListener('keydown', onKeyDown);
@@ -531,7 +536,7 @@ export function useInput() {
     window.addEventListener('gamepadconnected', onGamepadConnected);
     window.addEventListener('gamepaddisconnected', onGamepadDisconnected);
 
-    // Gamepad polling loop
+    // Poll only while a controller is connected and the page is visible.
     let rafId = 0;
     const pollGamepad = (now: number) => {
       if (navigator.getGamepads) {
@@ -601,7 +606,15 @@ export function useInput() {
       }
       rafId = window.requestAnimationFrame(pollGamepad);
     };
-    rafId = window.requestAnimationFrame(pollGamepad);
+    const refreshGamepadPolling = () => {
+      window.cancelAnimationFrame(rafId);
+      rafId = 0;
+      if (!document.hidden && Array.from(navigator.getGamepads?.() ?? []).some(Boolean)) {
+        rafId = window.requestAnimationFrame(pollGamepad);
+      }
+    };
+    document.addEventListener('visibilitychange', refreshGamepadPolling);
+    refreshGamepadPolling();
 
     return () => {
       window.removeEventListener('keydown', onKeyDown);
@@ -609,6 +622,7 @@ export function useInput() {
       window.removeEventListener('touchend', onTouchEnd);
       window.removeEventListener('gamepadconnected', onGamepadConnected);
       window.removeEventListener('gamepaddisconnected', onGamepadDisconnected);
+      document.removeEventListener('visibilitychange', refreshGamepadPolling);
       window.cancelAnimationFrame(rafId);
     };
   }, [setInputSource, setGamepadStatus]);

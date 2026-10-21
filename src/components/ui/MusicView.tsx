@@ -11,8 +11,10 @@ import {
 import { useDmStore } from '../../lib/store';
 import { getVideoArtwork } from '../../lib/videoArtwork';
 import { useSound } from '../../hooks/useSound';
+import { usePhonePerformance } from '../../hooks/usePhonePerformance';
 
 export function MusicView() {
+  const phonePerformance = usePhonePerformance();
   const videos = useDmStore((s) => s.videos);
   const musicVideoIndex = useDmStore((s) => s.musicVideoIndex);
   const activeZone = useDmStore((s) => s.activeZone);
@@ -140,7 +142,8 @@ export function MusicView() {
           // glide into place instead of appearing midway through a transition.
           let offset = (i - currentIndex + videos.length) % videos.length;
           if (offset > videos.length / 2) offset -= videos.length;
-          if (Math.abs(offset) > 3) return null;
+          if (Math.abs(offset) > (phonePerformance ? 1 : 3)) return null;
+          if (isPlaying && i !== currentIndex) return null;
           if (i === currentIndex && isPlaying) {
             return (
               <article key={vid.id} className="record-card is-current expanded-video-card" aria-label={`Playing ${vid.shortTitle}`}>

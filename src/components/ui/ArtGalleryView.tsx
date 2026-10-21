@@ -11,8 +11,10 @@ import {
 import { ART_CATEGORIES, useDmStore } from '../../lib/store';
 import { getArtworkDataUri } from '../../lib/proceduralArt';
 import { useSound } from '../../hooks/useSound';
+import { usePhonePerformance } from '../../hooks/usePhonePerformance';
 
 export function ArtGalleryView() {
+  const phonePerformance = usePhonePerformance();
   const artworks = useDmStore((s) => s.artworks);
   const selectedArtCategory = useDmStore((s) => s.selectedArtCategory);
   const filterBarIndex = useDmStore((s) => s.filterBarIndex);
@@ -150,7 +152,7 @@ export function ArtGalleryView() {
           aria-label={`View ${focusedArt.title}`}
           onClick={viewArt}
         >
-          {focusedArt.videoUrl ? (
+          {focusedArt.videoUrl && !phonePerformance ? (
             <video
               key={focusedArt.id}
               src={focusedArt.videoUrl}
@@ -220,6 +222,8 @@ export function ArtGalleryView() {
                 <img
                   src={thumb}
                   alt={art.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <span>{art.title}</span>

@@ -67,7 +67,7 @@ export function VideoHub() {
           closeVideoHub();
         }
       }}
-      className="relative z-20 flex flex-col justify-between h-[calc(100vh-76px)] px-10 md:px-16 pb-28 select-none overflow-y-auto no-scrollbar animate-fadeIn"
+      className="video-hub relative z-20 flex flex-col justify-between h-[calc(100vh-76px)] px-10 md:px-16 pb-28 select-none overflow-y-auto no-scrollbar animate-fadeIn"
     >
       {/* Top Back Button */}
       <div className="flex items-center justify-between pt-2">
