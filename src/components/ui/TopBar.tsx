@@ -6,11 +6,28 @@ import creditsJson from '../../../content/credits.json';
 
 export function TopBar() {
   const activeTab = useDmStore(s => s.activeTab);
+  const setActiveTab = useDmStore(s => s.setActiveTab);
+  const setActiveOverlay = useDmStore(s => s.setActiveOverlay);
+  const closeVideoHub = useDmStore(s => s.closeVideoHub);
   const [now, setNow] = useState(new Date());
   useEffect(() => { const timer = window.setInterval(() => setNow(new Date()), 10000); return () => clearInterval(timer); }, []);
   return <header className="minimal-topbar">
     <div className="minimal-brand">
-      <DmLogoMark className="h-10 sm:h-12 md:h-[50px] w-auto max-w-[220px]" />
+      <button
+        type="button"
+        aria-label="Director Menny — Home"
+        className="rounded-sm"
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') e.stopPropagation();
+        }}
+        onClick={() => {
+          closeVideoHub();
+          setActiveOverlay('none');
+          setActiveTab('videos');
+        }}
+      >
+        <DmLogoMark className="h-10 sm:h-12 md:h-[50px] w-auto max-w-[220px]" />
+      </button>
       <i />
       <small>{activeTab === 'videos' ? 'HOME' : activeTab === 'music' ? 'MUSIC' : 'AI ART'}</small>
     </div>

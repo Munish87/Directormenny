@@ -45,7 +45,15 @@ export default function App() {
       }} onPointerLeave={e => { e.currentTarget.style.setProperty('--pointer-x', '0'); e.currentTarget.style.setProperty('--pointer-y', '0'); }}>
       {/* Hidden Semantic HTML List of Videos & Artworks for Search Engine Crawlers & Screen Readers */}
       <section className="sr-only" aria-label="Director Menny Filmography and AI Art Catalog">
-        <h1>Director Menny — Music Video Director &amp; Visual Editor Portfolio (DM OS)</h1>
+        <h1>Director Menny — Film &amp; Music Video Director Portfolio</h1>
+        <p>
+          Official portfolio of Director Menny (Manish Parmar) — acclaimed Film Director, Music Video Director,
+          and Creative Editor with over 100M+ views across cinematic projects.
+        </p>
+        <address>
+          <p>Email: <a href="mailto:manish.parmar1995@gmail.com">manish.parmar1995@gmail.com</a></p>
+          <p>Instagram: <a href="https://instagram.com/menny_parmar">@menny_parmar</a></p>
+        </address>
         <h2>Directed &amp; Edited Music Videos</h2>
         <ul>
           {videos.map((v) => (
