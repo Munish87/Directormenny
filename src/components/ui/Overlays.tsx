@@ -252,7 +252,7 @@ export function Overlays() {
             <div className="service-pricing-grid">
               {servicePackages.map((plan, index) => (
                 <article key={plan.id} className={`service-pricing-card ${plan.id === 'monthly' ? 'is-featured' : ''}`}>
-                  <div className="service-plan-number">0{index + 1} / MUSIC VIDEO EDITING</div>
+                  <div className="service-plan-number">MUSIC VIDEO EDITING</div>
                   <h3>{plan.name}</h3>
                   <p className="service-plan-price">{plan.price}<span>{plan.period}</span></p>
                   <p className="service-plan-description">{plan.description}</p>

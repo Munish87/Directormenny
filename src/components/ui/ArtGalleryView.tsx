@@ -103,12 +103,7 @@ export function ArtGalleryView() {
         <div className="art-info">
           <span className="eyebrow">DIRECTOR MENNY / AI SPATIAL CONCEPT ART</span>
           <h1>{focusedArt.title}</h1>
-          <p className="art-category">
-            {focusedArt.category}{' '}
-            <span> / </span>{' '}
-            {String(artRowIndex + 1).padStart(2, '0')} of{' '}
-            {String(filteredArtworks.length).padStart(2, '0')}
-          </p>
+          <p className="art-category">{focusedArt.category}</p>
           {focusedArt.promptSummary ? (
             <p className="art-description">{focusedArt.promptSummary}</p>
           ) : null}

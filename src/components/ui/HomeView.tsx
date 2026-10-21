@@ -56,7 +56,17 @@ export function HomeView() {
         </button>)}
         {[{ label: 'Library', icon: LayoutGrid }, { label: 'Services', icon: Clapperboard }].map((item, index) => <button type="button" key={item.label} aria-label={item.label} className={`console-tile utility-tile ${s.videoRowIndex === homeVideos.length + index ? 'is-selected' : ''}`} onFocus={() => s.setVideoRowIndex(homeVideos.length + index)} onClick={() => { s.setVideoRowIndex(homeVideos.length + index); s.setActiveOverlay(index ? 'services' : 'library'); }}><item.icon size={27} strokeWidth={1.3} /><span>{item.label}</span></button>)}
       </div>
-      <div className="cinematic-actions"><button type="button" className={`cinematic-play ${s.activeZone === 'PLAY_BUTTON' ? 'is-focused' : ''}`} onFocus={() => s.setActiveZone('PLAY_BUTTON')} onClick={activate}>{library || services ? <ArrowUpRight size={15} /> : <Play size={13} fill="currentColor" />}<span>{library ? 'Explore library' : services ? 'View services' : 'Watch film'}</span></button><span className="collection-count">{String(s.videoRowIndex + 1).padStart(2, '0')} <i>/</i> {String(homeVideos.length + 2).padStart(2, '0')}</span></div>
+      <div className="cinematic-actions">
+        <button
+          type="button"
+          className={`cinematic-play ${s.activeZone === 'PLAY_BUTTON' ? 'is-focused' : ''}`}
+          onFocus={() => s.setActiveZone('PLAY_BUTTON')}
+          onClick={activate}
+        >
+          {library || services ? <ArrowUpRight size={15} /> : <Play size={13} fill="currentColor" />}
+          <span>{library ? 'Explore library' : services ? 'View services' : 'Watch film'}</span>
+        </button>
+      </div>
     </section>
   </div>;
 }

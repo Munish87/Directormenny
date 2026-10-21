@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Music2, Sparkles, UserRound, Mail } from 'lucide-react';
+import { Home, Music2, Sparkles, UserRound } from 'lucide-react';
 import { useDmStore, type PrimaryTab, type OverlayType } from '../../lib/store';
 import { useSound } from '../../hooks/useSound';
 
@@ -70,44 +70,15 @@ export function HintsBar() {
         ))}
       </nav>
 
-      {/* Right: Quick Inquiries & Direct Email Action */}
-      <div className="footer-meta-right hidden md:flex items-center gap-3.5">
-        <button
-          type="button"
-          onClick={() => {
-            playSound('select');
-            s.setActiveOverlay('contact');
-          }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 hover:bg-blue-500/20 text-[#e1efff] hover:text-white text-[11px] font-medium tracking-wide transition-all shadow-[0_0_15px_#3b82f61a] active:scale-95"
-          aria-label="Open contact form"
-        >
-          <Mail size={13} className="text-blue-400" />
-          <span>Get in Touch</span>
-        </button>
-        <a
-          href="mailto:manish.parmar1995@gmail.com"
-          className="text-[11px] text-[#8fa4bf] hover:text-[#dceaff] tracking-wider transition-colors hidden xl:inline"
-          title="Direct Inquiries: manish.parmar1995@gmail.com"
-        >
-          manish.parmar1995@gmail.com
-        </a>
-      </div>
+      {/* Right: Balanced Spacer so dock stays 100% centered */}
+      <div className="footer-meta-right hidden md:flex items-center" aria-hidden="true" />
 
-      {/* Mobile Sub-line: subtle brand + status + touch contact */}
+      {/* Mobile Sub-line: subtle brand + status */}
       <div className="footer-mobile-sub flex md:hidden items-center justify-center gap-2 text-[10px] text-[#8aa1be] tracking-wider mt-2">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" aria-hidden="true" />
         <span>DIRECTOR MENNY</span>
         <span className="text-white/20" aria-hidden="true">·</span>
-        <button
-          type="button"
-          onClick={() => {
-            playSound('select');
-            s.setActiveOverlay('contact');
-          }}
-          className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2"
-        >
-          CONTACT
-        </button>
+        <span>AVAILABLE WORLDWIDE</span>
       </div>
     </footer>
   );
