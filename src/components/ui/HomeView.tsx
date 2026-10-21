@@ -27,11 +27,31 @@ export function HomeView() {
     }
   };
   return <div className="console-home cinematic-home no-scrollbar">
+    <div className="home-video-showcase">
     <section className="cinematic-caption" aria-label="Selected release">
       <p className="eyebrow"><span />DIRECTOR MENNY / SELECTED WORK</p>
       <h1>{library ? 'The collection.' : services ? 'Create something.' : video.shortTitle}</h1>
       <div className="cinematic-meta"><span>{library ? 'Explore every film' : services ? 'Music video editing · Packages' : video.client.split(/\s*(?:·|\/\/)\s*/)[0]}</span>{!library && !services && <><i />{video.durationFormatted}</>}</div>
     </section>
+    {!library && !services && (
+      <section className="home-video-preview" aria-label={`Preview: ${video.shortTitle}`}>
+        <div className="preview-screen">
+        <img src={getVideoArtwork(video)} alt={video.title} />
+        {video.youtubeId && s.activeOverlay === 'none' && (
+          <iframe
+            key={video.youtubeId}
+            title={`${video.shortTitle} — video preview`}
+            src={`https://www.youtube.com/embed/${encodeURIComponent(video.youtubeId)}?autoplay=1&mute=0&controls=1&playsinline=1&loop=1&playlist=${encodeURIComponent(video.youtubeId)}&rel=0`}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        )}
+        </div>
+
+      </section>
+    )}
+    </div>
     <section className="cinematic-library" aria-label="Browse videos">
       <div ref={row} className="console-carousel cinematic-covers no-scrollbar">
         {homeVideos.map((item, index) => <button type="button" key={item.id} aria-label={`Select ${item.shortTitle}`} aria-pressed={s.videoRowIndex === index}
@@ -42,7 +62,7 @@ export function HomeView() {
           <img
             src={getVideoArtwork(item)}
             alt={item.title}
-            className="w-full h-full object-cover object-center block"
+            className="w-full object-contain object-center block"
             loading="eager"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
