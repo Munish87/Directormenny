@@ -1,0 +1,123 @@
+{
+  "director": {
+    "name": "Director Menny",
+    "handle": "@DirectorMenny",
+    "status": "CREATIVE DIRECTOR PROFILE",
+    "verifiedBanner": "AVAILABLE ONLY ON EARTH",
+    "logo": "/images/dm-logo.png",
+    "avatar": "/images/dm-logo.png",
+    "role": "Music Video Director · DOP · Film Editor · Colorist · AI Filmmaker",
+    "title": "Music Video Director · DOP · Editor · Colorist",
+    "subtitle": "Music Video Director · DOP · Editor · Colorist",
+    "primaryButton": "BOOK DIRECTOR MENNY",
+    "secondaryButton": "EXPLORE MY WORK",
+    "stats": {
+      "audience": {
+        "value": "100M+",
+        "label": "Total Audience Reach",
+        "sub": "Combined views across projects"
+      },
+      "directed": {
+        "value": "120+",
+        "label": "Directed & Edited",
+        "sub": "Music videos directed & edited"
+      },
+      "artists": {
+        "value": "60",
+        "label": "Artists & Brands",
+        "sub": "Unique clients & artists"
+      },
+      "experience": {
+        "value": "10+",
+        "label": "Years of Experience",
+        "sub": "Professional filmmaking experience"
+      }
+    },
+    "biography": {
+      "heading": "BEHIND THE VISION",
+      "paragraphs": [
+        "I'm Director Menny — a filmmaker, music video director, cinematographer, editor, and colorist with nearly a decade of experience shaping visuals from concept to final frame.",
+        "My work lives at the intersection of cinematic storytelling, music, visual culture, and technology. From directing and shooting music videos to crafting precise edits, cinematic color grades, and AI-generated visual worlds, I approach every project as an opportunity to build something distinctive.",
+        "I'm equally interested in the craft behind the camera and the possibilities emerging beyond it. I experiment with AI filmmaking, character consistency, cinematic world-building, and emerging creative tools to push visual ideas further.",
+        "I don't just edit footage. I build the atmosphere, rhythm, and visual identity that make a project memorable."
+      ],
+      "closingQuote": "My vision. My frames. My direction."
+    },
+    "pipeline": {
+      "heading": "CAMERA, EDIT & VFX PIPELINE",
+      "stages": [
+        {
+          "name": "DIRECTION & PRE-PRODUCTION",
+          "items": ["Creative Direction", "Concept Development", "Visual Research", "Storyboarding", "Shot Design"]
+        },
+        {
+          "name": "CINEMATOGRAPHY",
+          "items": ["Director of Photography", "Camera Movement", "Lighting Design", "Lens Selection", "Cinematic Composition"]
+        },
+        {
+          "name": "POST-PRODUCTION",
+          "items": ["Video Editing", "Rhythm & Pacing", "Color Grading", "Look Development", "Finishing & Delivery"]
+        },
+        {
+          "name": "AI FILMMAKING",
+          "items": ["AI Image Generation", "Image-to-Video", "Character Reference Design", "Cinematic Prompt Engineering", "Environment Creation", "AI-Assisted Visual Effects"]
+        }
+      ],
+      "toolsHeading": "TOOLS",
+      "tools": [
+        "Adobe Premiere Pro",
+        "DaVinci Resolve",
+        "Adobe Photoshop",
+        "Suno",
+        "Kling",
+        "Seedance",
+        "Nano Banana",
+        "Higgsfield",
+        "OpenArt"
+      ]
+    },
+    "collaborations": {
+      "heading": "CREATIVE DISCIPLINES & COLLABORATIONS",
+      "subheading": "SELECTED WORK & CREATIVE COLLABORATIONS",
+      "tags": [
+        "Music Videos",
+        "Artist Visuals",
+        "Live Concerts & Showreels",
+        "Cinematic Promotional Films",
+        "Creative Campaigns",
+        "AI-Generated Films",
+        "Visual Concepts"
+      ],
+      "paragraphs": [
+        "My portfolio showcases my work across direction, cinematography, editing, color grading, and emerging AI-powered production workflows.",
+        "Each project is an opportunity to translate an idea, an artist's identity, or a musical emotion into a distinctive visual experience."
+      ],
+      "portfolioSection": "SELECTED PROJECTS",
+      "aiSection": "AI WORLDS & EXPERIMENTS"
+    },
+    "servicesSection": {
+      "heading": "CREATIVE SERVICES",
+      "services": [
+        { "num": "01", "name": "Music Video Direction" },
+        { "num": "02", "name": "Cinematography & DOP" },
+        { "num": "03", "name": "Professional Video Editing" },
+        { "num": "04", "name": "Cinematic Color Grading" },
+        { "num": "05", "name": "AI Music Videos & Films" },
+        { "num": "06", "name": "AI Visual Development & Prompt Design" },
+        { "num": "07", "name": "Creative Direction & Visual Concepts" },
+        { "num": "08", "name": "Live Performance Films & Showreels" }
+      ],
+      "projectsStatement": "Available for music videos, artist collaborations, commercial visuals, creative campaigns, and experimental AI filmmaking.",
+      "ctaHeadline": "LET'S BUILD SOMETHING CINEMATIC.",
+      "ctaSub": "Bring the vision. I'll help bring it to the screen."
+    },
+    "contact": {
+      "heading": "HAVE A VISION?",
+      "cta": "Have a vision? Let's bring it to life. Book Director Menny for your next project."
+    },
+    "socials": {
+      "instagram": "https://www.instagram.com/menny_parmar/",
+      "email": "mennyparmar@gmail.com"
+    }
+  }
+}

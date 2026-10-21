@@ -1,0 +1,6 @@
+{
+  "name": "DM OS — Director Menny Spatial Portfolio",
+  "description": "Production-ready 3D spatial console portfolio for music video director and editor Director Menny, featuring PS5-inspired spatial navigation, live YouTube telemetry, trophy milestones, and an AI Art media gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,149 @@
+[
+  {
+    "id": "it-was-all-a-dream",
+    "youtubeId": "rsgFxDEaroo",
+    "isPinned": true,
+    "pinOrder": 1,
+    "client": "KARAN AUJLA",
+    "role": "Director & Editor",
+    "dominantColor": "#8b5cf6",
+    "secondaryColor": "#f59e0b",
+    "brief": "Official music visual for 'It was all a Dream' by Karan Aujla. Directed and edited by Director Menny.",
+    "behindTheScenes": "Shot on large-format cinema cameras with dynamic lens choreography and dramatic lighting setups.",
+    "toolsUsed": ["ARRI Alexa Mini LF", "Premiere Pro", "DaVinci Resolve Studio", "After Effects"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artist", "name": "Karan Aujla" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "kooner-type-shi",
+    "youtubeId": "xI48ch-UtBQ",
+    "isPinned": true,
+    "pinOrder": 2,
+    "client": "GAGAN KOONER // MAVERICK",
+    "role": "Director & Editor",
+    "dominantColor": "#2563eb",
+    "secondaryColor": "#06b6d4",
+    "brief": "Official music video for KOONER TYPE SHI by GAGAN KOONER | MAVERICK. Directed and edited by Director Menny with cinematic anamorphic lenses, high-contrast night grading, and hard-hitting cut precision.",
+    "behindTheScenes": "Captured on anamorphic cinema optics with custom lighting choreography and synchronized visual rhythm.",
+    "toolsUsed": ["ARRI Alexa Mini LF", "Premiere Pro", "DaVinci Resolve Studio", "After Effects"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artist", "name": "Gagan Kooner" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "mrxcidi",
+    "youtubeId": "ksyd6qUJNVI",
+    "isPinned": true,
+    "pinOrder": 3,
+    "client": "KABIR RANDHAWA // GAGAN KOONER",
+    "role": "Director & Editor",
+    "dominantColor": "#dc2626",
+    "secondaryColor": "#f97316",
+    "brief": "Official music video for MRXCIDI by Kabir Randhawa & Gagan Kooner (Mostly Friday). Directed and edited by Director Menny.",
+    "behindTheScenes": "Shot on cinema cameras with dynamic lens choreography, stylized motion cuts, and warm filmic grading.",
+    "toolsUsed": ["RED V-Raptor 8K", "Premiere Pro", "DaVinci Resolve Studio", "After Effects"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artists", "name": "Kabir Randhawa, Gagan Kooner" },
+      { "role": "Label", "name": "Mostly Friday" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "set-ho-gia",
+    "youtubeId": "2Vxs2TYG19s",
+    "isPinned": true,
+    "pinOrder": 4,
+    "client": "PARMISH VERMA // GURLEZ AKHTAR",
+    "role": "Director & Editor",
+    "dominantColor": "#e11d48",
+    "secondaryColor": "#f59e0b",
+    "brief": "Official music video for 'Set Ho Gia' by Parmish Verma ft. Gurlez Akhtar (Times Music). Directed and edited by Director Menny.",
+    "behindTheScenes": "High-energy multi-location shoot featuring dynamic gimbal tracking, warm punchy color tones, and rhythmic montage pacing.",
+    "toolsUsed": ["ARRI Alexa Mini LF", "Premiere Pro", "DaVinci Resolve Studio", "After Effects"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artists", "name": "Parmish Verma, Gurlez Akhtar" },
+      { "role": "Label", "name": "Times Music" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "yaar-mere",
+    "youtubeId": "peAI4gbZf5I",
+    "isPinned": true,
+    "pinOrder": 5,
+    "client": "GURMAAN BRAR // DEEP RANDHAWA",
+    "role": "Director & Editor",
+    "dominantColor": "#10b981",
+    "secondaryColor": "#3b82f6",
+    "brief": "Official music video for 'Yaar Mere' by Gurmaan Brar & Deep Randhawa (98 Model Studio). Directed and edited by Director Menny.",
+    "behindTheScenes": "Shot with cinematic anamorphic primes capturing rural landscapes and gritty brotherhood narratives.",
+    "toolsUsed": ["Sony FX9", "Atlas Anamorphic", "Premiere Pro", "DaVinci Resolve Studio"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artists", "name": "Gurmaan Brar, Deep Randhawa" },
+      { "role": "Label", "name": "98 Model Studio" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "her-eyes",
+    "youtubeId": "wd59SXu_ZK4",
+    "isPinned": true,
+    "pinOrder": 6,
+    "client": "GAGAN KOONER",
+    "role": "Director & Editor",
+    "dominantColor": "#6366f1",
+    "secondaryColor": "#ec4899",
+    "brief": "Official music video for 'HER EYES' by Gagan Kooner. Directed and edited by Director Menny.",
+    "behindTheScenes": "Mood-driven night cinematography utilizing practical neon lighting, reflections, and expressive macro lenses.",
+    "toolsUsed": ["ARRI Alexa Mini", "Cooke Anamorphic /i", "Premiere Pro", "DaVinci Resolve Studio"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artist", "name": "Gagan Kooner" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "woki-toki",
+    "youtubeId": "8x3Cryvxtnw",
+    "isPinned": true,
+    "pinOrder": 7,
+    "client": "KHUSH ATHWAL // PRODSSD",
+    "role": "Director & Editor",
+    "dominantColor": "#eab308",
+    "secondaryColor": "#ef4444",
+    "brief": "Official music video for 'Woki Toki' by Khush Athwal (ProdSSD). Directed and edited by Director Menny.",
+    "behindTheScenes": "Fast-paced handheld camera work, vintage broadcast monitor integration, and rapid-fire visual transitions.",
+    "toolsUsed": ["RED Komodo 6K", "Canon FD Vintage Primes", "Premiere Pro", "After Effects"],
+    "credits": [
+      { "role": "Director & Editor", "name": "Director Menny" },
+      { "role": "Artist", "name": "Khush Athwal" },
+      { "role": "Music", "name": "ProdSSD" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  },
+  {
+    "id": "through-time",
+    "youtubeId": "izGzTG3dXiM",
+    "isPinned": true,
+    "pinOrder": 8,
+    "client": "MENNY ;)",
+    "role": "Director & Artist",
+    "dominantColor": "#0ea5e9",
+    "secondaryColor": "#a855f7",
+    "brief": "Official music video for 'Through Time' by Menny. Directed and edited by Director Menny.",
+    "behindTheScenes": "A personal visual narrative spanning time-lapse urban transitions, film-grain texture overlays, and reflective framing.",
+    "toolsUsed": ["ARRI Alexa Mini LF", "Zeiss Supreme Primes", "Premiere Pro", "DaVinci Resolve Studio"],
+    "credits": [
+      { "role": "Director, Artist & Editor", "name": "Director Menny" },
+      { "role": "Colorist", "name": "Director Menny" }
+    ]
+  }
+]
