@@ -20,7 +20,7 @@ INCLUDE_SHORTS="false"
 
 # Optional Resend API key for Contact / Commission form email dispatch
 RESEND_API_KEY=""
-CONTACT_EMAIL="booking@directormenny.studio"
+CONTACT_EMAIL="menny@directormenny.com"
 ```
 
 When `YOUTUBE_API_KEY` is omitted or quota is exceeded, `/api/videos` automatically validates and serves `/content/videos.fallback.json` merged with `/content/featured.json`.

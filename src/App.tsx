@@ -55,7 +55,7 @@ export default function App() {
           and Creative Editor with over 100M+ views across cinematic projects.
         </p>
         <address>
-          <p>Email: <a href="mailto:manish.parmar1995@gmail.com">manish.parmar1995@gmail.com</a></p>
+          <p>Email: <a href="mailto:menny@directormenny.com">menny@directormenny.com</a></p>
           <p>Instagram: <a href="https://instagram.com/menny_parmar">@menny_parmar</a></p>
         </address>
         <h2>Directed &amp; Edited Music Videos</h2>

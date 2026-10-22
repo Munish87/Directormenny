@@ -377,7 +377,7 @@ async function startServer() {
     contactSubmissions.unshift(record);
 
     // Optional Resend dispatch if RESEND_API_KEY is configured
-    const contactEmail = process.env.CONTACT_EMAIL?.trim() || 'manish.parmar1995@gmail.com';
+    const contactEmail = process.env.CONTACT_EMAIL?.trim() || 'menny@directormenny.com';
     if (resendKey) {
       try {
         const delivery = await fetch('https://api.resend.com/emails', {
@@ -387,7 +387,7 @@ async function startServer() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'DM OS Booking <onboarding@resend.dev>',
+            from: 'DM OS Booking <menny@directormenny.com>',
             to: [contactEmail],
             reply_to: email,
             subject: `[DM OS Inquiry ${referenceId}] ${serviceType} — ${name}`,
