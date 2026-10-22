@@ -12,6 +12,7 @@ import { ART_CATEGORIES, useDmStore } from '../../lib/store';
 import { getArtworkDataUri } from '../../lib/proceduralArt';
 import { useSound } from '../../hooks/useSound';
 import { usePhonePerformance } from '../../hooks/usePhonePerformance';
+import { InstagramReel } from './InstagramReel';
 
 export function ArtGalleryView() {
   const phonePerformance = usePhonePerformance();
@@ -31,6 +32,8 @@ export function ArtGalleryView() {
   const rowRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useDmStore((s) => s.reducedMotion);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [failedVideoId, setFailedVideoId] = useState<string | null>(null);
+  const [failedHeroVideoId, setFailedHeroVideoId] = useState<string | null>(null);
 
   const filteredArtworks =
     selectedArtCategory === 'All'
@@ -118,7 +121,7 @@ export function ArtGalleryView() {
               onClick={viewArt}
             >
               <Play size={17} fill="currentColor" />
-              <span>{focusedArt.videoUrl ? 'Watch Reel' : 'View Artwork'}</span>
+              <span>{focusedArt.videoUrl || focusedArt.mediaType === 'reel' ? 'Watch Reel' : 'View Artwork'}</span>
             </button>
 
             {focusedArt.instagramUrl && (
@@ -152,7 +155,7 @@ export function ArtGalleryView() {
           aria-label={`View ${focusedArt.title}`}
           onClick={viewArt}
         >
-          {focusedArt.videoUrl && !phonePerformance ? (
+          {focusedArt.videoUrl && !phonePerformance && failedHeroVideoId !== focusedArt.id ? (
             <video
               key={focusedArt.id}
               src={focusedArt.videoUrl}
@@ -161,7 +164,8 @@ export function ArtGalleryView() {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover rounded-[14px]"
+              onError={() => setFailedHeroVideoId(focusedArt.id)}
+              className="w-full h-full object-contain rounded-[14px] bg-black"
             />
           ) : (
             <img
@@ -173,7 +177,7 @@ export function ArtGalleryView() {
           )}
           <span className="art-frame-caption flex items-center justify-between pointer-events-none">
             <span className="text-xs font-mono font-bold tracking-wide drop-shadow-md">
-              {focusedArt.category} · {focusedArt.videoUrl ? 'PLAY REEL' : 'VIEW ART'}
+              {focusedArt.category} · {focusedArt.videoUrl || focusedArt.mediaType === 'reel' ? 'PLAY REEL' : 'VIEW ART'}
             </span>
             <span className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
               <Play size={14} fill="currentColor" />
@@ -280,8 +284,8 @@ export function ArtGalleryView() {
           </div>
 
           <div className="relative min-h-0 flex-1 my-3 flex items-center justify-center overflow-hidden rounded-[24px] border border-white/15 bg-black/95 p-2 md:p-4">
-            {viewerArt.videoUrl ? (
-              <div className="relative w-full h-full max-w-sm md:max-w-md max-h-[80vh] rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center bg-black">
+            {viewerArt.videoUrl && failedVideoId !== viewerArt.id ? (
+              <div className="absolute inset-2 md:inset-4 flex items-center justify-center bg-black">
                 <video
                   key={viewerArt.id}
                   src={viewerArt.videoUrl}
@@ -290,9 +294,16 @@ export function ArtGalleryView() {
                   autoPlay
                   loop
                   playsInline
+                  onError={() => setFailedVideoId(viewerArt.id)}
                   className="w-full h-full object-contain rounded-2xl bg-black"
                 />
               </div>
+            ) : viewerArt.instagramUrl ? (
+              <InstagramReel
+                key={viewerArt.id}
+                url={viewerArt.instagramUrl}
+                title={viewerArt.title}
+              />
             ) : (
               <div className="relative w-full h-full max-w-3xl max-h-[80vh] flex items-center justify-center">
                 <img

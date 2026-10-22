@@ -1,21 +1,21 @@
 [
   {
-    "id": "art-ig-01",
-    "title": "Showreel",
-    "category": "Cinematic",
+    "id": "art-ig-03",
+    "title": "Sidhu Moose Wala",
+    "category": "Characters",
     "aspectRatio": "16:9",
-    "dominantColor": "#1e293b",
-    "secondaryColor": "#f8fafc",
-    "visualPreset": "cyberGrid",
-    "tool": "Cinema 4D + Premiere Pro",
-    "createdAt": "2026-03-24",
-    "tags": ["Director Menny", "Showreel", "Live Visuals", "Stage Production"],
+    "dominantColor": "#0f766e",
+    "secondaryColor": "#111827",
+    "visualPreset": "geometricHalo",
+    "tool": "Stable Diffusion + After Effects",
+    "createdAt": "2026-03-12",
+    "tags": ["Sidhu Moose Wala", "Director Menny", "CRT Noir", "Visuals"],
     "promptSummary": "",
-    "instagramUrl": "https://www.instagram.com/p/Da_ogKdhoAN/",
-    "instagramShortcode": "Da_ogKdhoAN",
-    "mediaType": "post",
-    "thumbnailUrl": "/artwork/reels/Da_ogKdhoAN.jpg",
-    "videoUrl": "/artwork/reels/Da_ogKdhoAN.mp4"
+    "instagramUrl": "https://www.instagram.com/reel/DW5iulkAWQL/",
+    "instagramShortcode": "DW5iulkAWQL",
+    "mediaType": "reel",
+    "thumbnailUrl": "/artwork/reels/DW5iulkAWQL.jpg",
+    "videoUrl": "/artwork/reels/DW5iulkAWQL.mp4"
   },
   {
     "id": "art-ig-02",
@@ -36,22 +36,22 @@
     "videoUrl": "/artwork/reels/DWslfBZDE1I.mp4"
   },
   {
-    "id": "art-ig-03",
-    "title": "Sidhu Moose Wala",
-    "category": "Characters",
+    "id": "art-ig-01",
+    "title": "Karan Aujla",
+    "category": "Cinematic",
     "aspectRatio": "16:9",
-    "dominantColor": "#0f766e",
-    "secondaryColor": "#111827",
-    "visualPreset": "geometricHalo",
-    "tool": "Stable Diffusion + After Effects",
-    "createdAt": "2026-03-12",
-    "tags": ["Sidhu Moose Wala", "Director Menny", "CRT Noir", "Visuals"],
+    "dominantColor": "#1e293b",
+    "secondaryColor": "#f8fafc",
+    "visualPreset": "cyberGrid",
+    "tool": "Cinema 4D + Premiere Pro",
+    "createdAt": "2026-03-24",
+    "tags": ["Karan Aujla", "Director Menny", "Showreel", "Live Visuals", "Stage Production"],
     "promptSummary": "",
-    "instagramUrl": "https://www.instagram.com/reel/DW5iulkAWQL/",
-    "instagramShortcode": "DW5iulkAWQL",
-    "mediaType": "reel",
-    "thumbnailUrl": "/artwork/reels/DW5iulkAWQL.jpg",
-    "videoUrl": "/artwork/reels/DW5iulkAWQL.mp4"
+    "instagramUrl": "https://www.instagram.com/p/Da_ogKdhoAN/",
+    "instagramShortcode": "Da_ogKdhoAN",
+    "mediaType": "post",
+    "thumbnailUrl": "/artwork/reels/Da_ogKdhoAN.jpg",
+    "videoUrl": "/artwork/reels/Da_ogKdhoAN.mp4"
   },
   {
     "id": "art-ig-04",
@@ -75,7 +75,7 @@
     "id": "art-ig-05",
     "title": "Teddy Stellar",
     "category": "Characters",
-    "aspectRatio": "16:9",
+    "aspectRatio": "45:34",
     "dominantColor": "#b45309",
     "secondaryColor": "#18181b",
     "visualPreset": "cyberGrid",
@@ -86,8 +86,8 @@
     "instagramUrl": "https://www.instagram.com/reel/DWkvkHjiBjs/",
     "instagramShortcode": "DWkvkHjiBjs",
     "mediaType": "reel",
-    "thumbnailUrl": "/artwork/reels/DWkvkHjiBjs.jpg",
-    "videoUrl": "/artwork/reels/DWkvkHjiBjs.mp4"
+    "thumbnailUrl": "/artwork/reels/DWkvkHjiBjs-fitted.jpg",
+    "videoUrl": "/artwork/reels/DWkvkHjiBjs-fitted.mp4"
   },
   {
     "id": "art-ig-06",
@@ -194,7 +194,9 @@
     "instagramUrl": "https://www.instagram.com/reel/DY9Jd5zsMWE/",
     "instagramShortcode": "DY9Jd5zsMWE",
     "mediaType": "reel",
-    "thumbnailUrl": "/artwork/reels/DY9Jd5zsMWE.jpg"
+    "thumbnailUrl": "/artwork/reels/DY9Jd5zsMWE.jpg",
+    "videoUrl": "/artwork/reels/DY9Jd5zsMWE.mp4",
+    "videoUrl": "/artwork/reels/DY9Jd5zsMWE.mp4"
   },
   {
     "id": "art-ig-12",
@@ -211,7 +213,9 @@
     "instagramUrl": "https://www.instagram.com/reel/Da61CJTIUmR/",
     "instagramShortcode": "Da61CJTIUmR",
     "mediaType": "reel",
-    "thumbnailUrl": "/artwork/reels/Da61CJTIUmR.jpg"
+    "thumbnailUrl": "/artwork/reels/Da61CJTIUmR.jpg",
+    "videoUrl": "/artwork/reels/Da61CJTIUmR.mp4",
+    "videoUrl": "/artwork/reels/Da61CJTIUmR.mp4"
   },
   {
     "id": "art-ig-13",
@@ -228,6 +232,8 @@
     "instagramUrl": "https://www.instagram.com/reel/DZq8vqRo4_F/",
     "instagramShortcode": "DZq8vqRo4_F",
     "mediaType": "reel",
-    "thumbnailUrl": "/artwork/reels/DZq8vqRo4_F.jpg"
+    "thumbnailUrl": "/artwork/reels/DZq8vqRo4_F.jpg",
+    "videoUrl": "/artwork/reels/DZq8vqRo4_F.mp4",
+    "videoUrl": "/artwork/reels/DZq8vqRo4_F.mp4"
   }
 ]
