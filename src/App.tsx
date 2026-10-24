@@ -19,8 +19,6 @@ import { ControlCenter } from './components/ui/ControlCenter';
 import { Overlays } from './components/ui/Overlays';
 import { getVideoArtwork } from './lib/videoArtwork';
 import { HintsBar } from './components/ui/HintsBar';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Scene = React.lazy(() => import('./components/3d/Scene').then(module => ({ default: module.Scene })));
 const staticBackground = <div aria-hidden="true" className="console-scene console-scene-fallback fixed inset-0 pointer-events-none" />;
@@ -49,8 +47,6 @@ export default function App() {
         e.currentTarget.style.setProperty('--pointer-x', `${(e.clientX / window.innerWidth - .5) * 2}`);
         e.currentTarget.style.setProperty('--pointer-y', `${(e.clientY / window.innerHeight - .5) * 2}`);
       }} onPointerLeave={e => { e.currentTarget.style.setProperty('--pointer-x', '0'); e.currentTarget.style.setProperty('--pointer-y', '0'); }}>
-      <Analytics />
-      <SpeedInsights />
       {/* Hidden Semantic HTML List of Videos & Artworks for Search Engine Crawlers & Screen Readers */}
       <section className="sr-only" aria-label="Director Menny Filmography and AI Art Catalog">
         <h1>Director Menny — Film &amp; Music Video Director Portfolio</h1>
