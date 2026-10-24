@@ -25,7 +25,7 @@ export function HintsBar() {
           <span className="font-['Outfit'] font-semibold text-[11px] tracking-[2.5px] text-white/95">DIRECTOR MENNY</span>
         </div>
         <span className="text-white/20 text-xs" aria-hidden="true">/</span>
-        <span className="text-[10px] tracking-[1.8px] text-[#91a6c4] font-medium uppercase">AVAILABLE WORLDWIDE</span>
+        <span className="text-[10px] tracking-[1.8px] text-[#91a6c4] font-medium uppercase">AVAILABLE ONLY ON EARTH</span>
       </div>
 
       {/* Center: Iconic PS5 Console Dock */}
@@ -78,7 +78,7 @@ export function HintsBar() {
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" aria-hidden="true" />
         <span>DIRECTOR MENNY</span>
         <span className="text-white/20" aria-hidden="true">·</span>
-        <span>AVAILABLE WORLDWIDE</span>
+        <span>AVAILABLE ONLY ON EARTH</span>
       </div>
     </footer>
   );

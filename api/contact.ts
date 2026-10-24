@@ -45,6 +45,7 @@ export default async function handler(req: ServerlessRequest, res: ServerlessRes
 
   const referenceId = `DM-${Date.now().toString(36).toUpperCase()}`;
   const contactEmail = process.env.CONTACT_EMAIL?.trim() || 'menny@directormenny.com';
+  const fromEmail = process.env.RESEND_FROM_EMAIL?.trim() || 'DM OS Booking <menny@directormenny.com>';
 
   try {
     const delivery = await fetch('https://api.resend.com/emails', {
@@ -54,7 +55,7 @@ export default async function handler(req: ServerlessRequest, res: ServerlessRes
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'DM OS Booking <menny@directormenny.com>',
+        from: fromEmail,
         to: [contactEmail],
         reply_to: email,
         subject: `[DM OS Inquiry ${referenceId}] ${serviceType} — ${name}`,
@@ -63,12 +64,15 @@ export default async function handler(req: ServerlessRequest, res: ServerlessRes
     });
 
     if (!delivery.ok) {
+      const errText = await delivery.text();
+      console.error('Resend delivery failed:', delivery.status, errText);
       return res.status(502).json({
         ok: false,
         error: 'Your inquiry could not be delivered. Please use direct email.',
       });
     }
-  } catch {
+  } catch (err) {
+    console.error('Resend network error:', err);
     return res.status(502).json({
       ok: false,
       error: 'Delivery network error. Please use direct email.',

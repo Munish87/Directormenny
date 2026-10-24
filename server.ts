@@ -378,6 +378,7 @@ async function startServer() {
 
     // Optional Resend dispatch if RESEND_API_KEY is configured
     const contactEmail = process.env.CONTACT_EMAIL?.trim() || 'menny@directormenny.com';
+    const fromEmail = process.env.RESEND_FROM_EMAIL?.trim() || 'DM OS Booking <menny@directormenny.com>';
     if (resendKey) {
       try {
         const delivery = await fetch('https://api.resend.com/emails', {
@@ -387,7 +388,7 @@ async function startServer() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'DM OS Booking <menny@directormenny.com>',
+            from: fromEmail,
             to: [contactEmail],
             reply_to: email,
             subject: `[DM OS Inquiry ${referenceId}] ${serviceType} — ${name}`,
@@ -395,10 +396,12 @@ async function startServer() {
           }),
         });
         if (!delivery.ok) {
+          const errText = await delivery.text();
+          console.error('Resend delivery failed:', delivery.status, errText);
           return res.status(502).json({ ok: false, error: 'Your inquiry could not be delivered. Please retry or use the email link above.' });
         }
       } catch (err) {
-        console.warn('Booking delivery failed');
+        console.error('Booking delivery network error:', err);
         return res.status(502).json({ ok: false, error: 'Your inquiry could not be delivered. Please retry or use the email link above.' });
       }
     }
